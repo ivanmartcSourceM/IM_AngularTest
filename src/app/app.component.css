@@ -1,0 +1,8 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.breedImage {
+    width: 350px;
+    height: 350px;
+}
