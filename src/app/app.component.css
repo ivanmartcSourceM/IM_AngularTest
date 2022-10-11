@@ -6,3 +6,16 @@
     width: 350px;
     height: 350px;
 }
+
+.card { 
+    width: 21%;
+    margin: 1%;
+}
+
+.card-container{
+    display: flex;
+}
+
+.search-btn{
+    margin-top: 7%;
+}
