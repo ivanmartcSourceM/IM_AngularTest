@@ -1,18 +1,8 @@
-<!-- <input
-    matInput
-    [formControl]="myControl"
-    [matAutocomplete]="auto">
-    
-<mat-autocomplete #auto="matAutocomplete">
-  <mat-option *ngFor="let option of options" [value]="option">
-    {{option}}
-  </mat-option>
-</mat-autocomplete> -->
 <mat-toolbar>
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>search</mat-icon>
   </button>
-  <span>Breeds & SubBreeds.</span>
+  <span>DogBreeds</span>
   <span class="example-spacer"></span>
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
@@ -22,54 +12,53 @@
   </button>
 </mat-toolbar>
 
-
-
-<form class="example-form">
-  <firstComponent>
-
-  </firstComponent>
-  <mat-form-field class="example-full-width" appearance="fill">
-    
-    <mat-label>Type here</mat-label>
-    <input [(ngModel)]="breedToFind"
-           type="text"
-           placeholder="Pick one"
-           aria-label="Number"
-           matInput
-           [formControl]="myControl"
-           [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let dogsBreed of filteredOptions | async" [value]="dogsBreed">
-        {{dogsBreed}}
-      </mat-option>
-    </mat-autocomplete>
-    <button (click)="search()" mat-flat-button color="primary" class="search-btn"><mat-icon>search</mat-icon>Search for Images</button>
-  </mat-form-field>
-  
-</form>
-
-<h2>Results</h2>
-<div layout=”row”>
-  <div flex style="display: flex;">
-    <mat-card class="card" *ngFor="let url of imagesURLs">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <!-- <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-      </mat-card-header>
-      <mat-card-content>
-        <img src="{{url}}" class="breedImage" alt="Dog Photo unavailable" >
-        <p>
-          Description
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE<mat-icon>favorite</mat-icon></button>
-        <button mat-button>SHARE<mat-icon>share</mat-icon></button>
-      </mat-card-actions>
-    </mat-card> 
+<div class="row center-xs">
+  <div class="col-xs-6">
+      <div class="box">
+        <firstComponent>
+        </firstComponent>
+        <form class="example-form">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Type here</mat-label>
+            <input [(ngModel)]="breedToFind"
+                   type="text"
+                   placeholder="Pick one"
+                   aria-label="Number"
+                   matInput
+                   [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let dogsBreed of filteredOptions | async" [value]="dogsBreed">
+                {{dogsBreed}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+        <button (click)="search()" mat-flat-button color="primary" class="search-btn full-width"><mat-icon>search</mat-icon>Search for Images</button>
+      </div>
   </div>
-  
+</div>
+
+<div class="row">
+  <div class="col-md-3" *ngFor="let url of imagesURLs">
+      <div class="box">
+        <mat-card class="card col-md-12">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <img src="{{url}}" class="breedImage" alt="Dog Photo unavailable" >
+            <p>
+              Description
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>LIKE<mat-icon>favorite</mat-icon></button>
+            <button mat-button>SHARE<mat-icon>share</mat-icon></button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+  </div>
 </div>
 
   
