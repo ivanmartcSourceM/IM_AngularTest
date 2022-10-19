@@ -21,8 +21,6 @@ export class FinderComponent implements OnInit {
 
   ngOnInit(): void {
     this.dogsBreedsService.getDogBreeds().subscribe((resp: any) => {
-      console.log('data: ', typeof resp.message);
-      
       //Create a Single list with Breeds and Sub Breeds 
       for (const key in resp.message) {
         if (resp.message.hasOwnProperty(key)) {

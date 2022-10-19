@@ -31,7 +31,6 @@ export class AppComponent {
 
   listArray($event:any): any{
     this.imagesURLs = $event
-    console.log("Event log: ", $event)
   }
 
 }
