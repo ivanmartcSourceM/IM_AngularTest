@@ -1,0 +1,20 @@
+<div>
+	<form class="example-form">
+		<mat-form-field class="full-width" appearance="fill">
+			<mat-label>Type here</mat-label>
+			<input [(ngModel)]="breedToFind"
+							type="text"
+							placeholder="Pick one"
+							aria-label="Number"
+							matInput
+							[formControl]="myControl"
+							[matAutocomplete]="auto">
+			<mat-autocomplete #auto="matAutocomplete">
+				<mat-option *ngFor="let dogsBreed of filteredOptions | async" [value]="dogsBreed">
+					{{dogsBreed}}
+				</mat-option>
+			</mat-autocomplete>
+		</mat-form-field>
+	</form>
+	<button (click)="search()" mat-flat-button color="primary" class="search-btn full-width"><mat-icon>search</mat-icon>Search for Images</button>
+</div>

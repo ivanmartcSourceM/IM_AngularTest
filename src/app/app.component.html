@@ -1,64 +1,16 @@
-<mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>search</mat-icon>
-  </button>
-  <span>DogBreeds</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
-</mat-toolbar>
+<app-nav-bar></app-nav-bar>
 
 <div class="row center-xs">
   <div class="col-xs-6">
       <div class="box">
-        <firstComponent>
-        </firstComponent>
-        <form class="example-form">
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Type here</mat-label>
-            <input [(ngModel)]="breedToFind"
-                   type="text"
-                   placeholder="Pick one"
-                   aria-label="Number"
-                   matInput
-                   [formControl]="myControl"
-                   [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let dogsBreed of filteredOptions | async" [value]="dogsBreed">
-                {{dogsBreed}}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-        </form>
-        <button (click)="search()" mat-flat-button color="primary" class="search-btn full-width"><mat-icon>search</mat-icon>Search for Images</button>
+        <firstComponent></firstComponent>
+        <app-finder (outputListArray) = "listArray($event)"></app-finder>
       </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-3" *ngFor="let url of imagesURLs">
-      <div class="box">
-        <mat-card class="card col-md-12">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-          </mat-card-header>
-          <mat-card-content>
-            <img src="{{url}}" class="breedImage" alt="Dog Photo unavailable" >
-            <p>
-              Description
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>LIKE<mat-icon>favorite</mat-icon></button>
-            <button mat-button>SHARE<mat-icon>share</mat-icon></button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-  </div>
+  <app-dog-card class="col-md-3" [incomingData]="url" *ngFor="let url of imagesURLs"></app-dog-card>
 </div>
 
   

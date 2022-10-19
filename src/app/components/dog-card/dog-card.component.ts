@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dog-card',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dog-card.component.css']
 })
 export class DogCardComponent implements OnInit {
+  @Input() incomingData:any;
 
   constructor() { }
 

@@ -17,11 +17,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
  
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { FinderComponent } from './components/finder/finder.component';
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
-    DogCardComponent
+    DogCardComponent,
+    NavBarComponent,
+    FinderComponent
   ],
   imports: [
     HttpClientModule,

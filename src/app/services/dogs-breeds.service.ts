@@ -12,23 +12,15 @@ export class DogsBreedsService {
   }
 
   getDogBreeds(): Observable<any> {
-    // let headers = new HttpHeaders().set('Type-content', 'aplication/json')
-    // return this.http.get(this.service_url,{ headers: headers })
     return this.http.get<any>('/api/breeds/list/all')
-
   }
 
   getImages(breed: any,subBreed: any): Observable<any> {
-    // let headers = new HttpHeaders().set('Type-content', 'aplication/json')
-    // return this.http.get(this.service_url,{ headers: headers })
     return subBreed ? this.http.get<any>(`/api/breed/${breed}/${subBreed}/images/random/4`) : this.http.get<any>(`/api/breed/${breed}/images/random/4`)
   }
 
   getDogBreeds_by_name(name: string): Observable<any> {
-    // let headers = new HttpHeaders().set('Type-content', 'aplication/json')
-    // return this.http.get(this.service_url,{ headers: headers })
     return this.http.get<any>('/api/breeds/list/all')
-
   }
   
 }
